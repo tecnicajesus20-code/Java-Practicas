@@ -39,10 +39,12 @@ public class Lab05PerfilEstudiante {
         // TODO 7: Colocar un breakpoint antes de la reasignación; observar ciudad,
         // usar Step Over y registrar el valor anterior y el nuevo.
 
-        // Madrid es el valor anterior y Barcelona es el nuevo valor.
-        // Barcelona es el valor que se muestra en la consola despues de la reasignacion de ciudad  en ciudadNueva.
+        // --Madrid es el valor anterior y Barcelona es el nuevo valor.
+        // --Barcelona es el valor que se muestra en la consola despues de la reasignacion de ciudad  en ciudadNueva.
 
         // TODO 8: Explicar una elección de tipo y qué garantiza final en CURSO.
-        // La elección del tipo String para CURSO garantiza que el valor no pueda ser modificado una vez asignado.
+
+        //-- La elección del tipo String para CURSO garantiza que el valor no pueda ser modificado una vez asignado.
+
     }
 }
