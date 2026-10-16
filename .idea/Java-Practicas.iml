@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/|Fundamentos|Primera_semana/Labs_2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/|Fundamentos|Primera_semana/Labs_3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/|Fundamentos|Primera_semana/Labs_4" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/|Fundamentos|Primera_semana/labs_01" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/|Fundamentos|Primera_semana/labs_4" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-01-introduccion-configuracion-variables/demo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-01-introduccion-configuracion-variables/labs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-02-operadores-estructuras-decision/demo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-02-operadores-estructuras-decision/labs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-03-estructuras-repetitivas/demo" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
