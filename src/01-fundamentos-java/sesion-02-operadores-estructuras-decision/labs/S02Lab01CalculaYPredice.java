@@ -42,9 +42,16 @@ public class S02Lab01CalculaYPredice {
                 }
             }
         }
+
         // TODO 6 (opcional): Probar unidades = 8 y explicar qué cambia. Mantener capacidad = 2.
+        // Con unidades = 8 (capacidad = 2): Suma 10, Resta 6, Producto 16,
+        // Division entera 4, Resto 0, Division decimal 3.5 (sin cambio).
+        // Cambian todas las que usan la variable unidades. La decimal NO cambia
+        // porque su numerador es el literal 7.0, no la variable unidades.
 
         // TODO 7: Registrar predicción, resultado y causa de cualquier diferencia.
-        // -- no hay diferencia clara
+        // Las diez líneas observadas coinciden con la predicción, no hubo diferencias.
+        // (La tabla predicción vs. resultado está en RESULTADOS.md.)
     }
-}
+
+    }
