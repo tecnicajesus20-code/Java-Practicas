@@ -1,4 +1,4 @@
-public class S02Lab05MotorPromociones {
+public class S02Lab05MotorPromociones{
     public static void main(String[] args) {
         long subtotalCentavos = 18_500;
         int cantidad = 4;

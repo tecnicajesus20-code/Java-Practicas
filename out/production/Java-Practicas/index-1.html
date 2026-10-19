@@ -1,148 +1,326 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Desconocido </title></head><body>
-<h1 id="laboratorios-de-la-sesion-1">Laboratorios de la sesión 1</h1>
-<p>Completa los TODO de las cinco clases en tu copia personal. Las plantillas compilan desde el inicio, pero no están resueltas: que un archivo compile no significa que el laboratorio esté completo.</p>
-<p>Trabaja con IntelliJ IDEA y JDK 21 como referencia del curso; estas clases también son compatibles con JDK 17. Usa tipos explícitos, datos ficticios y nombres claros. No uses Scanner, if, ciclos, conversiones, métodos auxiliares ni dependencias externas en estas actividades.</p>
-<h2 id="metodo-de-trabajo">Método de trabajo</h2>
+<h1 id="laboratorios-de-la-sesion-2">Laboratorios de la sesión 2</h1>
+<p>Dispones de <strong>80 minutos para cinco actividades y 10 para pruebas cruzadas y cierre</strong>. Completa los TODO en tu repositorio personal. Usa JDK 21 como referencia; el código también es compatible con Java 17. Trabaja con datos inicializados y ejecuciones manuales, sin Scanner, ciclos, métodos auxiliares, dependencias ni excepciones.</p>
+<p>Cada clase inicial compila, pero contiene tareas pendientes. Primero predice, después implementa y finalmente compara. No publiques solo capturas: registra entradas y resultados en tu README personal.</p>
+<h2 id="lab-1-calcula-y-predice-10-minutos">Lab 1 · Calcula y predice · 10 minutos</h2>
+<p><strong>Archivo:</strong> <a href="S02Lab01CalculaYPredice.java">S02Lab01CalculaYPredice.java</a>.</p>
+<p>Con unidades=7, capacidad=2 y contador=3, completa las expresiones y muestra:</p>
+<p><code>text
+Suma: 9
+Resta: 5
+Producto: 14
+Division entera: 3
+Division decimal: 3.5
+Resto: 1
+Sin parentesis: 14
+Con parentesis: 20
+Contador incrementado: 4
+Contador decrementado: 3</code></p>
+<p>La división decimal de este ejercicio es <code>7.0 / capacidad</code>. Prueba luego unidades=8, manteniendo las demás entradas. Cambian suma, resta, producto, división entera y resto; la división decimal conserva el numerador literal 7.0. Explica esa diferencia y por qué % no calcula un porcentaje. Registra tu predicción antes de ejecutar.</p>
+<h2 id="lab-2-reglas-de-acceso-15-minutos">Lab 2 · Reglas de acceso · 15 minutos</h2>
+<p><strong>Archivo:</strong> <a href="S02Lab02ReglasDeAcceso.java">S02Lab02ReglasDeAcceso.java</a>.</p>
+<p>Regla: permitir acceso cuando edad &gt;= 18, exista membresía o invitación y no haya bloqueo. Construye un boolean con nombre claro y usa if/else para mostrar exactamente <code>Acceso permitido</code> o <code>Acceso denegado</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Edad</th>
+<th>Miembro</th>
+<th>Invitación</th>
+<th>Bloqueado</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>17</td>
+<td>true</td>
+<td>true</td>
+<td>false</td>
+<td>Denegado</td>
+</tr>
+<tr>
+<td>18</td>
+<td>false</td>
+<td>true</td>
+<td>false</td>
+<td>Permitido</td>
+</tr>
+<tr>
+<td>19</td>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+<td>Permitido</td>
+</tr>
+<tr>
+<td>18</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>Denegado</td>
+</tr>
+<tr>
+<td>18</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+<td>Denegado</td>
+</tr>
+</tbody>
+</table>
+<p>Completa además las ocho combinaciones de miembro, invitación y bloqueo para edad 18. Explica dónde necesitas AND, OR y NOT. Un bloqueo debe negar el acceso aunque los demás requisitos se cumplan. Observa el boolean con Debug antes de seleccionar la rama.</p>
+<h2 id="lab-3-clasifica-resultados-15-minutos">Lab 3 · Clasifica resultados · 15 minutos</h2>
+<p><strong>Archivo:</strong> <a href="S02Lab03ClasificaResultados.java">S02Lab03ClasificaResultados.java</a>.</p>
+<p>La nota es un entero de 0 a 100. Antes de clasificar, rechaza valores fuera del rango. Usa una cadena if/else if/else con A desde 90, B desde 80, C desde 70, D desde 60 y E por debajo de 60. Muestra <code>Categoria A</code>, <code>Categoria B</code>, etc., o solo <code>Nota invalida</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Notas</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1, 101</td>
+<td>Nota invalida</td>
+</tr>
+<tr>
+<td>0, 59</td>
+<td>Categoria E</td>
+</tr>
+<tr>
+<td>60, 69</td>
+<td>Categoria D</td>
+</tr>
+<tr>
+<td>70, 79</td>
+<td>Categoria C</td>
+</tr>
+<tr>
+<td>80, 89</td>
+<td>Categoria B</td>
+</tr>
+<tr>
+<td>90, 100</td>
+<td>Categoria A</td>
+</tr>
+</tbody>
+</table>
+<p>Con nota=85 se espera <code>Categoria B</code>. Prueba cada valor de la tabla. Explica qué ocurriría si comprobaras nota&gt;=60 antes de nota&gt;=90 sin cambiar las demás ramas. Estas categorías pertenecen al ejercicio; no representan una escala institucional de calificación.</p>
+<h2 id="lab-4-elige-la-entrega-15-minutos">Lab 4 · Elige la entrega · 15 minutos</h2>
+<p><strong>Archivo:</strong> <a href="S02Lab04EligeLaEntrega.java">S02Lab04EligeLaEntrega.java</a>.</p>
+<p>El texto tipoEntrega debe ser no null y estar en mayúsculas. Usa switch y default para resolver:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Costo en centavos</th>
+<th>Etiqueta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ESTANDAR</td>
+<td>500</td>
+<td>Entrega a domicilio</td>
+</tr>
+<tr>
+<td>EXPRESS</td>
+<td>1200</td>
+<td>Entrega a domicilio</td>
+</tr>
+<tr>
+<td>RECOGIDA</td>
+<td>0</td>
+<td>Retiro en tienda</td>
+</tr>
+<tr>
+<td>DRON o cualquier otro texto</td>
+<td>No válido</td>
+<td>No mostrar etiqueta</td>
+</tr>
+</tbody>
+</table>
+<p>En una opción válida, muestra dos líneas. Para EXPRESS:</p>
+<p><code>text
+Costo (centavos): 1200
+Etiqueta: Entrega a domicilio</code></p>
+<p>Elige la etiqueta mediante un ternario simple y compara contenido de texto con equals. En una opción desconocida muestra únicamente <code>Tipo de entrega invalido</code>. Puedes usar -1 como señal interna; no lo muestres como costo válido.</p>
+<p>Compara la forma clásica con la forma de flecha en tu copia personal y prueba que ambas producen los mismos resultados. Entrega una sola versión y explica qué evita break y por qué las flechas no lo necesitan.</p>
+<h2 id="lab-5-motor-de-promociones-25-minutos">Lab 5 · Motor de promociones · 25 minutos</h2>
+<p><strong>Archivo:</strong> <a href="S02Lab05MotorPromociones.java">S02Lab05MotorPromociones.java</a>.</p>
+<p>Integra operadores y decisiones en un pedido. Entradas: subtotalCentavos como long, cantidad como int, esMiembro como boolean y tipoEntrega como String no null. Todo importe se muestra en centavos.</p>
+<h3 id="reglas">Reglas</h3>
 <ol>
-<li>Lee el objetivo y predice la salida antes de ejecutar.</li>
-<li>Completa un TODO a la vez y ejecuta la clase correspondiente.</li>
-<li>Compara la salida con los requisitos y corrige diferencias.</li>
-<li>Anota qué comprobaste y explica tus decisiones en comentarios o en tu README personal.</li>
+<li>Rechaza subtotal menor que 0 o mayor que 1_000_000, o cantidad &lt;= 0. Muestra solo <code>Pedido invalido: subtotal o cantidad fuera de rango</code>.</li>
+<li>Si el tipo no es ESTANDAR, EXPRESS o RECOGIDA, muestra solo <code>Pedido invalido: tipo de entrega desconocido</code>.</li>
+<li>Miembro y subtotal &gt;= 10_000: 10 % de descuento.</li>
+<li>No miembro y subtotal &gt;= 20_000: 5 % de descuento.</li>
+<li>En los demás casos: 0 %.</li>
+<li>Descuento en centavos = subtotal × porcentaje / 100. Descarta cualquier fracción de centavo mediante división entera.</li>
+<li>Neto = subtotal − descuento.</li>
+<li>Envío: ESTANDAR=500, EXPRESS=1200, RECOGIDA=0.</li>
+<li>Envío gratis únicamente para ESTANDAR si el neto &gt;= 25_000. Comprueba el neto, no el subtotal.</li>
+<li>Total = neto + envío. No presentes un desglose de pedido válido cuando alguna entrada sea inválida.</li>
 </ol>
-<h2 id="lab-1-mi-primer-saludo">Lab 1 · Mi primer saludo</h2>
-<p><strong>Archivo:</strong> <a href="Lab01MiPrimerSaludo.java">Lab01MiPrimerSaludo.java</a>. <strong>Modalidad:</strong> clase. <strong>Objetivo:</strong> ejecutar un programa y producir tres líneas.</p>
-<p>Completa los TODO para mostrar un saludo, un nombre ficticio y una meta. Ejemplo de formato:</p>
+<p>El porcentaje se selecciona con if/else if/else y la modalidad con switch. No acumules promociones: se aplica una sola tasa.</p>
+<h3 id="caso-inicial-esperado">Caso inicial esperado</h3>
+<p>Con subtotal=18_500, cantidad=4, miembro=true y EXPRESS:</p>
 <p><code>text
-Hola, Java!
-Nombre: Ana
-Meta: Aprender a ejecutar y comprender un programa Java.</code></p>
-<p>Puedes cambiar el nombre y la meta. Comprueba que hay exactamente tres líneas en ese orden. Ejecuta de nuevo cambiando solo la meta y verifica el resultado. Explica qué hace <code>main</code> y qué agrega <code>println</code> al final de cada salida.</p>
-<h2 id="lab-2-ordena-la-salida">Lab 2 · Ordena la salida</h2>
-<p><strong>Archivo:</strong> <a href="Lab02OrdenaLaSalida.java">Lab02OrdenaLaSalida.java</a>. <strong>Modalidad:</strong> clase. <strong>Objetivo:</strong> controlar los saltos de línea.</p>
-<p>Antes de modificar el código, escribe tu predicción de la salida inicial. Ejecuta y compara. Después completa los TODO para producir exactamente:</p>
-<p><code>text
-A - B - C
-Fin del laboratorio</code></p>
-<p>Usa al menos un <code>print</code> y un <code>println</code>. Comprueba espacios, guiones y saltos. Explica qué instrucciones terminan una línea y cuáles no.</p>
-<h2 id="lab-3-datos-con-sentido">Lab 3 · Datos con sentido</h2>
-<p><strong>Archivo:</strong> <a href="Lab03DatosConSentido.java">Lab03DatosConSentido.java</a>. <strong>Modalidad:</strong> clase. <strong>Objetivo:</strong> elegir tipos por el significado del dato.</p>
-<p>Declara las variables <code>nombre</code>, <code>edad</code>, <code>temperatura</code>, <code>inicial</code> y <code>activo</code>. Justifica el tipo de cada una y muestra las etiquetas <code>Nombre</code>, <code>Edad</code>, <code>Temperatura</code>, <code>Inicial</code> y <code>Activo</code>, una por línea.</p>
+Subtotal (centavos): 18500
+Descuento (%): 10
+Descuento (centavos): 1850
+Neto (centavos): 16650
+Envio (centavos): 1200
+Total (centavos): 17850</code></p>
+<h3 id="matriz-minima-de-pruebas">Matriz mínima de pruebas</h3>
+<p>En las filas sin cantidad explícita, usa cantidad=1.</p>
 <table>
 <thead>
 <tr>
-<th>Caso</th>
-<th>Nombre</th>
-<th>Edad</th>
-<th>Temperatura</th>
-<th>Inicial</th>
-<th>Activo</th>
+<th>Subtotal</th>
+<th>Miembro</th>
+<th>Entrega</th>
+<th>Descuento</th>
+<th>Neto</th>
+<th>Envío</th>
+<th>Total</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>A</td>
-<td>Ana</td>
-<td>20</td>
-<td>23.5</td>
-<td>A</td>
+<td>18500, cantidad=4</td>
 <td>true</td>
+<td>EXPRESS</td>
+<td>1850</td>
+<td>16650</td>
+<td>1200</td>
+<td>17850</td>
 </tr>
 <tr>
-<td>B</td>
-<td>Luis</td>
-<td>25</td>
-<td>18.0</td>
-<td>L</td>
-<td>false</td>
-</tr>
-</tbody>
-</table>
-<p>Para el caso A, la salida debe ser:</p>
-<p><code>text
-Nombre: Ana
-Edad: 20
-Temperatura: 23.5
-Inicial: A
-Activo: true</code></p>
-<p>Prueba el caso B cambiando solo los valores iniciales, sin modificar las instrucciones de salida. Registra ambos resultados. Explica por qué <code>String</code> no es un primitivo y por qué <code>char</code> usa comillas simples.</p>
-<h2 id="lab-4-diagnostica-y-corrige">Lab 4 · Diagnostica y corrige</h2>
-<p><strong>Archivo:</strong> <a href="Lab04DiagnosticaYCorrige.java">Lab04DiagnosticaYCorrige.java</a>. <strong>Modalidad:</strong> casa o extensión en clase. <strong>Objetivo:</strong> usar los diagnósticos del compilador para corregir cuatro errores.</p>
-<p>Los fragmentos incorrectos están comentados. Activa uno por vez en tu copia personal, intenta compilar, lee el diagnóstico y corrígelo antes de pasar al siguiente. No dejes errores activos al entregar.</p>
-<table>
-<thead>
-<tr>
-<th>Caso</th>
-<th>Requisito de la corrección</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Texto con comillas incorrectas</td>
-<td>Conservar Ana como String y mostrar <code>Nombre: Ana</code>.</td>
-</tr>
-<tr>
-<td>Decimal asignado a int</td>
-<td>Conservar 23.5 usando un tipo apropiado y mostrar <code>Temperatura: 23.5</code>.</td>
-</tr>
-<tr>
-<td>Variable local sin inicializar</td>
-<td>Dar a edad el valor 20 antes de leerla y mostrar <code>Edad: 20</code>.</td>
-</tr>
-<tr>
-<td>Reasignación de final</td>
-<td>Mantener CURSO como final con Java y mostrar <code>Curso: Java</code>; eliminar la reasignación.</td>
-</tr>
-</tbody>
-</table>
-<p>La clase corregida debe mostrar esas cuatro líneas en ese orden. Para cada caso, registra en tu README personal el mensaje observado, la causa y tu corrección. Los mensajes pueden variar según el IDE o compilador: se evalúa la explicación, no memorizar su texto.</p>
-<h2 id="lab-5-perfil-del-estudiante">Lab 5 · Perfil del estudiante</h2>
-<p><strong>Archivo:</strong> <a href="Lab05PerfilEstudiante.java">Lab05PerfilEstudiante.java</a>. <strong>Modalidad:</strong> casa. <strong>Objetivo:</strong> integrar tipos, salida, una constante y una reasignación observable.</p>
-<p>Completa los TODO para mostrar una ficha con nombre, edad, ciudad, promedio, estado activo y la constante CURSO con Java. Después cambia la ciudad mediante una reasignación y muestra el nuevo valor.</p>
-<table>
-<thead>
-<tr>
-<th>Perfil</th>
-<th>Nombre</th>
-<th>Edad</th>
-<th>Ciudad inicial</th>
-<th>Promedio</th>
-<th>Activo</th>
-<th>Ciudad nueva</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>Ana</td>
-<td>20</td>
-<td>Cucuta</td>
-<td>4.2</td>
+<td>9999</td>
 <td>true</td>
-<td>Bogota</td>
+<td>ESTANDAR</td>
+<td>0</td>
+<td>9999</td>
+<td>500</td>
+<td>10499</td>
 </tr>
 <tr>
-<td>B</td>
-<td>Luis</td>
-<td>25</td>
-<td>Medellin</td>
-<td>3.8</td>
+<td>10000</td>
+<td>true</td>
+<td>ESTANDAR</td>
+<td>1000</td>
+<td>9000</td>
+<td>500</td>
+<td>9500</td>
+</tr>
+<tr>
+<td>10001</td>
+<td>true</td>
+<td>ESTANDAR</td>
+<td>1000</td>
+<td>9001</td>
+<td>500</td>
+<td>9501</td>
+</tr>
+<tr>
+<td>19999</td>
 <td>false</td>
-<td>Cali</td>
+<td>ESTANDAR</td>
+<td>0</td>
+<td>19999</td>
+<td>500</td>
+<td>20499</td>
+</tr>
+<tr>
+<td>20000</td>
+<td>false</td>
+<td>ESTANDAR</td>
+<td>1000</td>
+<td>19000</td>
+<td>500</td>
+<td>19500</td>
+</tr>
+<tr>
+<td>20001</td>
+<td>false</td>
+<td>ESTANDAR</td>
+<td>1000</td>
+<td>19001</td>
+<td>500</td>
+<td>19501</td>
+</tr>
+<tr>
+<td>8000</td>
+<td>false</td>
+<td>RECOGIDA</td>
+<td>0</td>
+<td>8000</td>
+<td>0</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>26314</td>
+<td>false</td>
+<td>ESTANDAR</td>
+<td>1315</td>
+<td>24999</td>
+<td>500</td>
+<td>25499</td>
+</tr>
+<tr>
+<td>26315</td>
+<td>false</td>
+<td>ESTANDAR</td>
+<td>1315</td>
+<td>25000</td>
+<td>0</td>
+<td>25000</td>
+</tr>
+<tr>
+<td>26316</td>
+<td>false</td>
+<td>ESTANDAR</td>
+<td>1315</td>
+<td>25001</td>
+<td>0</td>
+<td>25001</td>
+</tr>
+<tr>
+<td>26315</td>
+<td>false</td>
+<td>EXPRESS</td>
+<td>1315</td>
+<td>25000</td>
+<td>1200</td>
+<td>26200</td>
+</tr>
+<tr>
+<td>0</td>
+<td>false</td>
+<td>RECOGIDA</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1000000</td>
+<td>true</td>
+<td>ESTANDAR</td>
+<td>100000</td>
+<td>900000</td>
+<td>0</td>
+<td>900000</td>
 </tr>
 </tbody>
 </table>
-<p>Salida esperada para el perfil A:</p>
-<p><code>text
-=== Perfil del estudiante ===
-Nombre: Ana
-Edad: 20
-Ciudad: Cucuta
-Promedio: 4.2
-Activo: true
-Curso: Java
-Ciudad actualizada: Bogota</code></p>
-<p>Prueba el perfil B modificando solo los datos. Coloca un breakpoint en la reasignación de ciudad: observa el valor antes, ejecuta Step Over y observa el valor después. Registra ambos valores y explica dos elecciones de tipo y qué garantiza final en CURSO.</p>
-<h2 id="criterios-de-revision">Criterios de revisión</h2>
+<p>Prueba también subtotal=-1 y 1_000_001, cantidad=0 y -1, y entrega=DRON. Cambia una entrada inválida por vez y verifica el mensaje y la ausencia de un total válido. Para DRON usa los demás datos válidos. La cantidad valida el pedido; el subtotal ya es el total de sus productos, no lo multipliques de nuevo por cantidad.</p>
+<p>Coloca un breakpoint antes de la condición de envío gratis y observa descuentoCentavos, netoCentavos y envioCentavos. Compara dos casos en lados distintos de esa frontera.</p>
+<h2 id="revision-cruzada-y-entrega-10-minutos">Revisión cruzada y entrega · 10 minutos</h2>
+<p>Intercambia una entrada de frontera con otra pareja, calcula primero el resultado esperado y ejecuta. Explica un error encontrado o una prueba que habría detectado un error posible. No añadas nuevas funcionalidades para terminar antes.</p>
+<p>Publica las cinco clases completas y un README de comprobaciones en tu repositorio personal, y entrega el enlace en Campus. Incluye predicciones, entradas, salidas, explicación de tipos/operadores y evidencia de depuración. No entregues soluciones en el repositorio oficial ni archivos .class o configuración personal del IDE.</p>
 <table>
 <thead>
 <tr>
@@ -152,32 +330,25 @@ Ciudad actualizada: Bogota</code></p>
 </thead>
 <tbody>
 <tr>
-<td>Ejecución</td>
-<td>Las cinco clases compilan y se ejecutan por separado.</td>
+<td>Reglas</td>
+<td>Condiciones y tasas representan exactamente los requisitos.</td>
 </tr>
 <tr>
-<td>Datos</td>
-<td>Tipos compatibles y elecciones justificadas.</td>
+<td>Estructuras</td>
+<td>if, switch y ternario elegidos con claridad; sin anidación innecesaria.</td>
 </tr>
 <tr>
-<td>Salida</td>
-<td>Formato solicitado y resultados comparados con una predicción.</td>
-</tr>
-<tr>
-<td>Diagnóstico</td>
-<td>Cuatro errores explicados y corregidos en el lab 4.</td>
+<td>Pruebas</td>
+<td>Casos normales, límites e inválidos comparados con resultados esperados.</td>
 </tr>
 <tr>
 <td>Depuración</td>
-<td>Valor de ciudad observado antes y después en el lab 5.</td>
+<td>Explicación de una causa y comprobación de su corrección.</td>
 </tr>
 <tr>
 <td>Legibilidad</td>
-<td>Nombres claros, indentación de cuatro espacios y TODO completados.</td>
+<td>Nombres claros, cuatro espacios de indentación y TODO resueltos.</td>
 </tr>
 </tbody>
 </table>
-<p>No se espera una copia de las demos: debes poder explicar cada decisión. Si necesitas ayuda, presenta tu predicción, el mensaje de error y lo que ya intentaste.</p>
-<h2 id="entrega">Entrega</h2>
-<p>Publica las cinco clases y un README con tus comprobaciones en tu repositorio personal. Entrega el enlace en Campus. No subas archivos compilados ni configuración personal de IntelliJ IDEA. No envíes tus soluciones al repositorio oficial del curso.</p>
 </body></html>

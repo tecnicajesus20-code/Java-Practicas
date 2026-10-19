@@ -1,4 +1,3 @@
-package src;
 
 public class S02Lab01CalculaYPredice {
     public static void main(String[] args) {
@@ -25,23 +24,30 @@ public class S02Lab01CalculaYPredice {
         System.out.println(7.0 / capacidad );
 
 
+
+        int numero = 2 ;
+
+
+        final String saludo  = "213";
+        String ho = "oko";
+        String jj = saludo.concat(ho);
+
+
+
+
+        System.out.println(numero + saludo);
+
+
         // TODO 3: Mostrar 7.0 / capacidad y explicar por qué conserva decimales.
         System.out.println(unidades % capacidad);
         // TODO 4: Comparar 2 + 3 * 4 con (2 + 3) * 4.
         System.out.println(2 + 3 * 4);
         System.out.println( (2 + 3) * 4);
-        // TODO 5: Incrementar contador en una sentencia, mostrarlo; decrementar y mostrarlo.
-        System.out.println("Aumentando...");
-        for (t i = 0 , i > 5 , i++){
-            System.out.println((i == 5 )? "MAXIMO: " + i : i);
-
-            if (i == 5) {
-                System.out.println("DECREMENTANDO ");
-                for (i = 5 , i == 0 , i--){
-                    System.out.println(i);
-                }
-            }
-        }
+        // TODO 5: Incrementar contador en una sentencia, mostrarlo; decrementar y mostrarlo
+       contador ++;
+        System.out.println(contador);
+        contador--;
+        System.out.println(contador);
 
         // TODO 6 (opcional): Probar unidades = 8 y explicar qué cambia. Mantener capacidad = 2.
         // Con unidades = 8 (capacidad = 2): Suma 10, Resta 6, Producto 16,

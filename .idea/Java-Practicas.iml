@@ -13,6 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-02-operadores-estructuras-decision/demo" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-02-operadores-estructuras-decision/labs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-03-estructuras-repetitivas/demo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-02-operadores-estructuras-decision" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
