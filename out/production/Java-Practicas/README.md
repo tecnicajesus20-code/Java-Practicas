@@ -1,120 +1,118 @@
-# Sesión 2 · Operadores y estructuras de decisión
+# Laboratorios de la sesión 6
 
-En esta sesión pasarás de almacenar datos a calcular, comparar y elegir caminos. El bloque de laboratorios tendrá **un máximo de 40 minutos**; el resto de la clase se dedica a teoría, demos, preguntas y revisión, usando IntelliJ IDEA, sin Maven ni Gradle.
+Tienes **55 minutos para tres labs y 5 minutos de revisión**. Completa lo pendiente en casa para la siguiente clase. Cada problema pide proteger una regla mediante métodos; poner `private` sin validar los cambios no es suficiente.
 
-## Objetivos
+## Antes de escribir código
 
-- Predecir resultados aritméticos y distinguir división entera de decimal.
-- Traducir reglas a condiciones con comparaciones, &&, || y !.
-- Decidir con if/else, ordenar rangos y reconocer sus fronteras.
-- Elegir switch para opciones discretas y ternario para dos valores simples.
-- Probar casos normales, límites e inválidos y explicar qué ocurrió.
+Copia los dos archivos de cada lab a tu proyecto personal. Conserva nombres y firmas. Completa campos, constructor y métodos en la clase de dominio, fuera de `main`. En el archivo terminado en `Main`, crea los objetos y escribe las comprobaciones con `System.out.println`. No accedas directamente a los campos ni agregues setters.
 
-## Preparación e IntelliJ
+Las plantillas compilan pero están incompletas: reemplaza cada retorno provisional por la lógica correcta, sin dejar otro `return` inalcanzable. Usa valores escritos en el programa; no necesitas Scanner, colecciones ni excepciones. Ejecuta el archivo terminado en `Main`.
 
-1. Actualiza el repositorio con `git pull` y trabaja en una copia personal para completar los labs.
-2. Localiza el material en `src/01-fundamentos-java/sesion-02-operadores-estructuras-decision/`.
-3. Usa JDK 21 como referencia; las clases también son compatibles con Java 17. Project SDK y Language level deben ser compatibles.
-4. Si conservas la organización por módulos y sesiones, deja el `src/` general como carpeta organizadora y marca `demo/` y `labs/` de esta sesión como **Sources Root** en **Project Structure → Modules → Sources**.
-5. Si copias las clases directamente al `src/` de un proyecto personal Java sencillo, marca ese `src/` como Sources Root. No agregues declaraciones package con los nombres de carpetas que contienen guiones.
-6. Ejecuta la clase correcta con Run junto a su main. Los nombres S02 evitan colisiones con la sesión 1.
+Una llamada a una operación puede modificar el objeto. Hazla **una sola vez por prueba**, imprime su booleano y, en la siguiente línea, consulta el estado. No vuelvas a ejecutar la operación para conocer qué ocurrió.
 
-No usamos entrada por teclado, ciclos ni métodos auxiliares. Para probar otro caso, cambia los valores iniciales y ejecuta de nuevo. Los tipos de entrega son textos no null escritos exactamente en mayúsculas.
+## Lab 1 · Termostato doméstico · 15 minutos
 
-## De una regla a una decisión
+Un termostato comienza en **20 °C** y permite ajustar su temperatura objetivo entre **16 y 30 °C, inclusive**. Si recibe otra temperatura, debe rechazarla y conservar la anterior.
 
-```mermaid
-flowchart LR
-    A["Regla en lenguaje natural"] --> B["Datos y fronteras"]
-    B --> C["Expresión booleana"]
-    C --> D["if, switch o ternario"]
-    D --> E["Predicción y ejecución"]
-    E --> F["Casos normales, límites e inválidos"]
+**Archivos:** [S06Termostato.java](S06Termostato.java) y [S06Lab01TermostatoMain.java](S06Lab01TermostatoMain.java).
+
+### Pasos para completar la actividad
+
+1. En `S06Termostato`, **TODO 1: Declarar temperaturaObjetivo como campo privado int.** Escribe la declaración en el lugar indicado, fuera del constructor y de los métodos. El campo pertenece a cada objeto, no es `static`.
+2. Dentro del constructor, **TODO 2: Inicializar la temperatura objetivo en 20.** Asigna 20 al campo. No declares otra variable local con el mismo nombre.
+3. En `getTemperaturaObjetivo`, **TODO 3: Devolver la temperatura objetivo actual.** Reemplaza el retorno provisional por el campo. Consultar no debe cambiar el valor.
+4. En `ajustarTemperatura`, **TODO 4: Aceptar solo de 16 a 30 inclusive; cambiar si acepta y devolver el resultado.** Si `nuevaTemperatura` es menor que 16 o mayor que 30, devuelve `false` sin modificar el campo. Si está dentro del intervalo, guarda el parámetro en el campo y devuelve `true`. Usa llaves en los bloques.
+5. En el `main` de `S06Lab01TermostatoMain`, **TODO 5: Crear un termostato y mostrar su temperatura inicial.** Declara `S06Termostato termostato`, créalo con `new S06Termostato()` y escribe un `println` con la etiqueta `Temperatura inicial: ` y la llamada a `getTemperaturaObjetivo()`.
+6. **TODO 6: Solicitar 24, 31 y 16; mostrar cada resultado y la temperatura posterior.** Escribe tres pares de `println`. El primero de cada par muestra la etiqueta `Ajustar 24: `, `Ajustar 31: ` o `Ajustar 16: ` y el resultado de llamar a `ajustarTemperatura` con ese número. El segundo muestra `Temperatura: ` y la consulta del campo mediante el getter. Respeta ese orden de solicitudes.
+7. Ejecuta la clase y compara las siete líneas. Al rechazar 31, la temperatura debe seguir en 24. Si cambia a 31, revisa que la asignación ocurra después de validar.
+
+**Salida esperada:**
+
+```text
+Temperatura inicial: 20
+Ajustar 24: true
+Temperatura: 24
+Ajustar 31: false
+Temperatura: 24
+Ajustar 16: true
+Temperatura: 16
 ```
 
-Antes de escribir la condición, pregunta: ¿qué debe pasar exactamente en el límite? Para “al menos 18”, prueba 17, 18 y 19; no basta con un valor lejano a la frontera.
+**Ampliación opcional para casa:** solicita 30 y después 15. Debe aceptar 30, rechazar 15 y conservar 30. No simules sensores ni ciclos de calefacción.
 
-## Operadores esenciales
+## Lab 2 · Existencias de un almacén · 20 minutos
 
-| Grupo | Operadores | Idea clave |
-| --- | --- | --- |
-| Asignación | = | Guarda un valor; no compara. |
-| Aritmética | +, -, *, /, % | Calcula; % es resto, no porcentaje. |
-| Incremento/decremento | ++, -- | Cambia una variable en una unidad. Prefiere sentencias separadas al comenzar. |
-| Comparación | ==, !=, >, >=, <, <= | Produce un boolean. |
-| Lógica | &&, ||, ! | Combina o niega condiciones. |
-| Ternario | condición ? valorA : valorB | Elige uno de dos valores simples. |
+Un almacén comienza con **cero unidades** y puede guardar **hasta 100**. Solo admite ingresos y retiros de cantidades positivas; no puede quedar con existencias negativas ni superar su capacidad.
 
-### División y precedencia
+**Archivos:** [S06Inventario.java](S06Inventario.java) y [S06Lab02InventarioMain.java](S06Lab02InventarioMain.java).
 
-`7 / 2` produce 3; `7.0 / 2` produce 3.5. Asignar `7 / 2` a double no recupera la fracción que la división entera ya descartó. `7 % 2` produce 1. En `2 + 3 * 4` la multiplicación tiene prioridad: resultado 14; `(2 + 3) * 4` produce 20.
+### Pasos para completar la actividad
 
-`contador++` produce el valor anterior y después incrementa; `++contador` incrementa primero y produce el nuevo valor. Cuando se usan como sentencias separadas, ambas formas incrementan una unidad.
+1. En `S06Inventario`, **TODO 1: Declarar existencias como int privado y capacidad como final int privado igual a 100.** Escribe los dos campos fuera de los métodos. `final` indica que la capacidad no se reasigna; no crees `setCapacidad` ni `setExistencias`.
+2. En el constructor, **TODO 2: Inicializar las existencias en cero.** Asigna el valor al campo, sin crear una variable local.
+3. En `getExistencias`, **TODO 3: Devolver las existencias actuales.** Sustituye el retorno provisional por el campo.
+4. En `ingresar`, **TODO 4: Validar cantidad positiva y espacio disponible antes de sumar.** Rechaza con `false` si `cantidad <= 0` o si `cantidad > capacidad - existencias`. Si acepta, suma la cantidad al campo y devuelve `true`. Compara con el espacio restante antes de sumar; no cambies primero las existencias para luego deshacer el cambio.
+5. En `retirar`, **TODO 5: Validar cantidad positiva y existencias suficientes antes de restar.** Rechaza con `false` una cantidad no positiva o superior a las existencias. Si acepta, réstala y devuelve `true`. Retirar exactamente todo lo disponible sí está permitido.
+6. En el `main` de `S06Lab02InventarioMain`, **TODO 6: Crear un inventario y mostrar sus existencias iniciales.** Usa `S06Inventario inventario = new S06Inventario()` e imprime `Existencias iniciales: ` con `getExistencias()`.
+7. **TODO 7: Ingresar 10, retirar 11 y retirar 10; mostrar resultado y existencias tras cada accion.** Escribe un par de `println` por movimiento: uno que llame a `ingresar(10)`, `retirar(11)` o `retirar(10)` y muestre su resultado; otro que consulte las existencias. Usa las etiquetas del bloque esperado. Después del retiro rechazado de 11, todavía deben quedar 10.
+8. **TODO 8: Intentar ingresar 0 y 101; mostrar resultado y existencias tras cada accion.** Escribe otros dos pares de `println`. Ambos ingresos se rechazan y las existencias permanecen en cero.
+9. Ejecuta y compara las once líneas. Si una acción devuelve `false`, la consulta siguiente debe mostrar el valor anterior a esa acción.
 
-### Lógica y cortocircuito
+**Salida esperada:**
 
-- `a && b`: ambas condiciones deben ser verdaderas; si a es falsa, b no se evalúa.
-- `a || b`: basta una verdadera; si a es verdadera, b no se evalúa.
-- `!a`: invierte el boolean.
+```text
+Existencias iniciales: 0
+Ingresar 10: true
+Existencias: 10
+Retirar 11: false
+Existencias: 10
+Retirar 10: true
+Existencias: 0
+Ingresar 0: false
+Existencias: 0
+Ingresar 101: false
+Existencias: 0
+```
 
-`divisor != 0 && 10 / divisor > 2` protege la división: con divisor cero, la segunda expresión se omite. Invertir ese orden elimina la protección.
+**Ampliación opcional para casa:** después de esas pruebas, ingresa 100 y luego intenta ingresar 1. Debe aceptar el primer ingreso, rechazar el segundo y conservar 100. No construyas un menú ni una lista de artículos.
 
-Usa paréntesis para mostrar intención: `edad >= 18 && (esMiembro || tieneInvitacion) && !bloqueado` exige edad, una autorización y ausencia de bloqueo.
+## Lab 3 · Despacho de un pedido · 20 minutos
 
-## Elegir una estructura
+Un pedido comienza en `PENDIENTE`. Desde ese estado se puede **enviar o cancelar**. Después de enviarlo o cancelarlo, no se permite ninguna de esas dos acciones otra vez.
 
-| Problema | Estructura | Precaución |
-| --- | --- | --- |
-| Una condición y dos caminos | if/else | La condición debe producir boolean. |
-| Rangos distintos | if/else if/else | Ejecuta la primera condición verdadera; ordena las fronteras y valida datos. |
-| Un valor entre opciones discretas | switch | Maneja opciones desconocidas con default. |
-| Elegir dos valores breves | Ternario | Evita anidarlo o esconder lógica compleja. |
+| Estado actual | Solicitud | Resultado | Estado posterior |
+| --- | --- | --- | --- |
+| PENDIENTE | enviar | true | ENVIADO |
+| PENDIENTE | cancelar | true | CANCELADO |
+| ENVIADO o CANCELADO | enviar o cancelar | false | Conserva su estado |
 
-El switch clásico con `case ...:` requiere break para evitar continuar accidentalmente hacia otro caso. Los casos con `->` no tienen ese fall-through. En esta sesión también verás switch como expresión que devuelve un valor.
+**Archivos:** [S06Pedido.java](S06Pedido.java) y [S06Lab03PedidoMain.java](S06Lab03PedidoMain.java).
 
-Para comparar contenido de texto usa `"RECOGIDA".equals(tipoEntrega)`; `==` entre referencias no representa esa comparación de contenido. En enteros y booleanos, == compara sus valores. No necesitas otros métodos de cadenas para estas actividades.
+### Pasos para completar la actividad
 
-## Tres demos: 60 minutos
+1. En `S06Pedido`, **TODO 1: Declarar estado como campo privado String.** No lo declares `static` ni agregues un setter que permita asignarle cualquier texto.
+2. En el constructor, **TODO 2: Inicializar el estado en PENDIENTE.** Asigna al campo el texto `"PENDIENTE"`, entre comillas y en mayúsculas.
+3. En `getEstado`, **TODO 3: Devolver el estado actual.** Reemplaza la cadena vacía provisional por el campo, sin modificarlo.
+4. En `enviar`, **TODO 4: Enviar solo un pedido PENDIENTE; cambiar a ENVIADO y devolver si acepta.** Compara el contenido del campo con `"PENDIENTE"` usando `equals`, no `==`. Si es distinto, devuelve `false`. Si coincide, asigna `"ENVIADO"` al campo y devuelve `true`.
+5. En `cancelar`, **TODO 5: Cancelar solo un pedido PENDIENTE; cambiar a CANCELADO y devolver si acepta.** Aplica la misma regla de estado inicial, pero cambia a `"CANCELADO"` cuando acepta. Un pedido enviado no se puede cancelar en este ejercicio.
+6. En el `main` de `S06Lab03PedidoMain`, **TODO 6: Crear primerPedido y segundoPedido; mostrar el estado inicial de ambos.** Crea dos objetos mediante dos llamadas a `new S06Pedido()`. Imprime sus consultas con las etiquetas `Pedido 1 inicial: ` y `Pedido 2 inicial: `.
+7. **TODO 7: Enviar primerPedido y luego intentar cancelarlo; consultar tras cada accion.** Escribe cuatro `println`: resultado de `primerPedido.enviar()`, estado mediante `getEstado()`, resultado de `primerPedido.cancelar()` y estado otra vez. Debe quedar enviado, incluso después del rechazo.
+8. **TODO 8: Cancelar segundoPedido y luego intentar enviarlo; consultar tras cada accion.** Escribe cuatro `println` equivalentes para el segundo objeto, primero cancelando y luego intentando enviar. Debe quedar cancelado. Usa las etiquetas del bloque esperado.
+9. Ejecuta y compara las diez líneas. Los pedidos tienen estados independientes. El Main debe solicitar acciones; no debe decidir ni asignar el estado por fuera de `S06Pedido`.
 
-| Minutos | Archivo | Pregunta antes de ejecutar |
-| --- | --- | --- |
-| 0–20 | [S02DemoOperadores.java](demo/S02DemoOperadores.java) | ¿Qué diferencia hay entre división entera, decimal y resto? |
-| 20–40 | [S02DemoDecisiones.java](demo/S02DemoDecisiones.java) | ¿Qué rama se ejecuta exactamente en 18 o 90? ¿Se evalúa una división por cero? |
-| 40–60 | [S02DemoOpciones.java](demo/S02DemoOpciones.java) | ¿Dan el mismo costo las dos formas de switch? ¿Qué pasa con DRON? |
+**Salida esperada:**
 
-En la demo de opciones, -1 es una señal interna de opción desconocida; no se presenta como un precio válido. Todos los costos están en centavos.
+```text
+Pedido 1 inicial: PENDIENTE
+Pedido 2 inicial: PENDIENTE
+Enviar pedido 1: true
+Pedido 1: ENVIADO
+Cancelar pedido 1: false
+Pedido 1: ENVIADO
+Cancelar pedido 2: true
+Pedido 2: CANCELADO
+Enviar pedido 2: false
+Pedido 2: CANCELADO
+```
 
-## Laboratorios: máximo 40 minutos en clase
-
-Consulta [la guía de cinco labs](labs/README.md). Los labs 1–3 son la prioridad del bloque de clase. No es obligatorio terminarlos dentro de los 40 minutos: guarda los avances y completa lo pendiente en casa, junto con los labs 4 y 5, para la siguiente clase.
-
-| Minutos del bloque de práctica | Trabajo |
-| --- | --- |
-| 0–10 | Lab 1: operadores |
-| 10–22 | Lab 2: acceso |
-| 22–37 | Lab 3: categorías |
-| 37–40 | Revisión breve y guardar avances |
-
-Realiza solo las pruebas mínimas obligatorias de cada lab. La matriz ampliada, comparar dos formas de switch y las tareas adicionales de Debug son opcionales. No añadas funcionalidades para terminar antes.
-## Cómo completar los labs sin perderte
-
-1. Abre [la guía detallada de laboratorios](labs/README.md) y busca el número del lab que estás trabajando.
-2. Abre el archivo Java enlazado en esa actividad. Escribe las instrucciones dentro de main; no copies el bloque de salida esperada como si fuera código.
-3. Sigue los pasos numerados en orden. Cada actividad indica los datos que debes usar, las variables o decisiones que debes construir y las etiquetas de los println.
-4. Ejecuta la clase actual después de cada bloque pequeño. Compara la salida y corrige antes de continuar.
-5. Haz las ejecuciones indicadas en la tabla de pruebas, cambiando los datos iniciales. Registra entradas, salida esperada y salida observada en el README de tu repositorio personal.
-6. Revisa el apartado **Terminado cuando** antes de pasar al siguiente lab. Completar un TODO implica implementarlo y comprobarlo, no solo borrarlo.
-
-## Importes del laboratorio
-
-Para el caso de promociones usamos long y centavos enteros: 10_000 centavos representan 100 unidades monetarias. El guion bajo mejora la lectura del literal y no cambia su valor.
-
-La regla de esta actividad es descartar cualquier fracción de centavo del descuento. Con importes no negativos, `subtotalCentavos * porcentajeDescuento / 100` aplica esa regla. El subtotal está acotado a 1_000_000 centavos para mantener el ejercicio controlado. No usamos double para dinero ni presentamos este diseño como una política universal de redondeo.
-
-## Depuración y entrega
-
-Coloca un breakpoint en una condición y usa Step Over para ver qué rama se ejecuta. En promociones, observa el descuento, el neto y el envío antes del total. Cambia una entrada a la vez para explicar la causa del resultado.
-
-Entrega en tu repositorio personal las cinco clases completas y un README breve con las pruebas mínimas, resultados y una explicación de un operador o decisión por lab. Completa lo pendiente en casa y tráelo para la siguiente clase. Comparte el enlace en Campus. No publiques configuración del IDE ni archivos compilados.
-
-Al finalizar debes poder explicar = frente a ==, > frente a >=, && frente a ||, el orden de else if y cuándo elegir switch o ternario. Compilar no demuestra que una regla sea correcta: tus pruebas deben cubrir sus fronteras.
+**Ampliación opcional para casa:** vuelve a llamar a `primerPedido.enviar()` y `segundoPedido.cancelar()`. Ambos deben devolver `false` y mantener su estado. No agregues pagos, productos ni otros estados.
