@@ -15,7 +15,7 @@ public class S06Termostato {
 
     public boolean ajustarTemperatura(int nuevaTemperatura) {
         // TODO 4: Aceptar solo de 16 a 30 inclusive; cambiar si acepta y devolver el resultado.
-        if (nuevaTemperatura < 16 || nuevaTemperatura > 30) {
+        if (nuevaTemperatura <= 16 || nuevaTemperatura >= 30) {
             return false;
         } else {
             this.temperaturaObjetivo = nuevaTemperatura;

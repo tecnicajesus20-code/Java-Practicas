@@ -8,14 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/|Fundamentos|Primera_semana/Labs_4" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/|Fundamentos|Primera_semana/labs_01" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/|Fundamentos|Primera_semana/labs_4" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-01-introduccion-configuracion-variables/demo" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-01-introduccion-configuracion-variables/labs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-02-operadores-estructuras-decision/demo" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-02-operadores-estructuras-decision/labs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-03-estructuras-repetitivas/demo" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/01-fundamentos-java/sesion-02-operadores-estructuras-decision" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/02-poo-estructuras-datos/sesion-05-introduccion-poo/labs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/02-poo-estructuras-datos/sesion-06-encapsulamiento/labs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/02-poo-estructuras-datos/sesion-08-arreglos-listas-genericos/demo" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
